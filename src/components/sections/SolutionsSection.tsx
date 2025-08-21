@@ -1,78 +1,123 @@
-import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
+
+const solutions = [
+  {
+    id: 'our-properties',
+    title: 'Our Properties',
+    description: 'Discover handpicked luxury properties',
+    image: 'https://framerusercontent.com/images/k6XkilwTVOSakz8ryCuWrU7YQFg.jpg',
+    href: '/featured-properties'
+  },
+  {
+    id: 'past-transactions',
+    title: 'Past Transactions',
+    description: 'View our successful property sales',
+    image: 'https://framerusercontent.com/images/V7bxnKBJLKWLeFJJsbtEAYNbc8.jpg',
+    href: '/past-transactions'
+  },
+  {
+    id: 'lets-connect',
+    title: "Let's Connect",
+    description: 'Start your real estate journey',
+    image: 'https://framerusercontent.com/images/qyrHS8yHxWjbGejCnaNbfZZL9w.jpg',
+    href: '/contact'
+  }
+]
 
 const SolutionsSection = () => {
-  const solutions = [
-    {
-      title: 'Our Properties',
-      description: 'Explore our curated collection of premium properties',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&h=600&fit=crop&crop=center',
-      href: '#properties'
-    },
-    {
-      title: 'Past Transactions',
-      description: 'View our successful real estate transactions',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&h=600&fit=crop&crop=center',
-      href: '#transactions'
-    },
-    {
-      title: 'Let\'s Connect',
-      description: 'Get in touch to discuss your real estate needs',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=600&fit=crop&crop=center',
-      href: '#contact'
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
     }
-  ];
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    }
+  }
 
   return (
     <section className="py-24 section-neutral">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
           <p className="text-overline text-text-muted mb-4">
             How Can We Help?
           </p>
           <h2 className="heading-lg text-text-primary">
             Explore Our Solutions
           </h2>
-        </div>
+        </motion.div>
 
         {/* Solutions Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => (
-            <div 
-              key={solution.title}
-              className="group cursor-pointer animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {solutions.map((solution) => (
+            <motion.div
+              key={solution.id}
+              variants={cardVariants}
+              className="group"
+              transition={{ duration: 0.8 }}
             >
-              <a href={solution.href} className="block">
-                <div className="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6">
+              <Link to={solution.href} className="block">
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100">
                   <img
                     src={solution.image}
                     alt={solution.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   
-                  {/* Content Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="heading-sm mb-2 group-hover:text-brand-accent transition-colors">
-                      {solution.title}
-                    </h3>
-                    <p className="text-sm opacity-90 mb-4">
-                      {solution.description}
-                    </p>
-                    <div className="flex items-center text-sm font-medium group-hover:translate-x-1 transition-transform">
-                      <span className="mr-2">Learn More</span>
-                      <ArrowRight className="h-4 w-4" />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <h3 className="text-2xl font-light text-white mb-2 font-serif">
+                          {solution.title}
+                        </h3>
+                        <p className="text-white/80 text-sm">
+                          {solution.description}
+                        </p>
+                      </div>
+                      
+                      <div className="ml-4 flex-shrink-0">
+                        <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+                          <ArrowUpRight className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </a>
-            </div>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 export default SolutionsSection;

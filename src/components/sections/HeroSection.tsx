@@ -1,60 +1,116 @@
-import heroImage from '@/assets/hero-living-room.jpg';
+import { motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import heroImage from '@/assets/hero-living-room.jpg'
+
+const DoubleArrowDown = () => (
+  <motion.div
+    className="flex flex-col items-center space-y-1"
+    animate={{
+      y: [0, 8, 0],
+    }}
+    transition={{
+      duration: 2,
+      repeat: Infinity,
+      ease: 'easeInOut'
+    }}
+  >
+    <ChevronDown className="w-4 h-4 text-text-inverse" />
+    <ChevronDown className="w-4 h-4 text-text-inverse -mt-2" />
+  </motion.div>
+)
 
 const HeroSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    }
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage}
-          alt="Luxury modern living room"
+          alt="Luxury modern living room with contemporary furniture and natural lighting"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-hero"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <motion.div
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Overline */}
-        <p className="text-overline text-text-inverse mb-6 tracking-widest animate-fade-in">
+        <motion.p
+          variants={itemVariants}
+          className="text-overline text-text-inverse mb-6 tracking-widest"
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
           YOUR NEXT MOVE STARTS HERE
-        </p>
+        </motion.p>
         
         {/* Main Heading */}
-        <h1 className="heading-display text-text-inverse mb-6 animate-fade-in">
+        <motion.h1
+          variants={itemVariants}
+          className="heading-display text-text-inverse mb-6"
+        >
           Olivia Sinclair
-        </h1>
+        </motion.h1>
         
         {/* Subtitle */}
-        <p className="text-body-lg text-text-inverse mb-12 animate-fade-in">
+        <motion.p
+          variants={itemVariants}
+          className="text-body-lg text-text-inverse mb-12"
+        >
           California Real Estate
-        </p>
+        </motion.p>
         
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-          <a 
-            href="#properties" 
-            className="btn-primary"
-          >
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <Link to="/featured-properties" className="btn-primary">
             View Properties
-          </a>
-          <a 
-            href="#contact" 
+          </Link>
+          <Link
+            to="/contact"
             className="btn-secondary text-text-inverse border-text-inverse hover:bg-text-inverse hover:text-text-primary"
           >
             Let's Connect
-          </a>
-        </div>
-      </div>
+          </Link>
+        </motion.div>
+      </motion.div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <div className="w-6 h-10 border-2 border-text-inverse rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-text-inverse rounded-full mt-2 animate-pulse"></div>
+          <div className="mt-2">
+            <DoubleArrowDown />
+          </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection
