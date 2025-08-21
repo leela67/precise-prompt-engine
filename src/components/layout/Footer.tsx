@@ -98,9 +98,11 @@ const Footer = () => {
             <div className="flex items-center mb-4 md:mb-0">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-neutral-900 font-bold text-sm">A</span>
+                  <span className="text-neutral-900 font-bold text-sm italic">T</span>
                 </div>
-                <span className="font-serif text-xl font-semibold">Ambience</span>
+                <span className="font-serif text-xl font-semibold">
+                  <span className="font-bold italic">T</span>erranova
+                </span>
               </div>
             </div>
 
@@ -109,7 +111,7 @@ const Footer = () => {
                 Designed by Dario Volkmann
               </p>
               <p className="text-neutral-400 text-sm">
-                © 2025 Ambience. All Rights Reserved.
+                © 2025 Terranova. All Rights Reserved.
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-# Ambience - Premium Real Estate Website
+# Terranova - Premium Real Estate Website
 
 ## Project Overview
 

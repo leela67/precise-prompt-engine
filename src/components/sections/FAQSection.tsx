@@ -28,7 +28,7 @@ const FAQSection = () => {
     <section className="py-24 section-neutral">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Side - Animation/Visual */}
+          {/* Left Side - Animated Text */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: -50 }}
@@ -36,42 +36,62 @@ const FAQSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <div className="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center">
+            <div className="space-y-8">
+              {/* FAQ's Text */}
               <motion.div
-                className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg"
-                animate={{
-                  y: [0, -20, 0],
-                  rotate: [0, 5, -5, 0]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="text-4xl">❓</div>
+                <h3 className="text-6xl md:text-7xl font-bold text-primary-600 tracking-tight">
+                  FAQ's
+                </h3>
               </motion.div>
+
+              {/* Frequently Asked Questions Text */}
+              <motion.div
+                className="space-y-2"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                >
+                  <p className="text-2xl md:text-3xl font-light text-text-primary">
+                    Frequently
+                  </p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <p className="text-2xl md:text-3xl font-light text-text-primary">
+                    Asked Questions
+                  </p>
+                </motion.div>
+              </motion.div>
+
+              {/* Decorative Element */}
+              <motion.div
+                className="w-20 h-1 bg-primary-600 rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              />
             </div>
           </motion.div>
 
           {/* Right Side - FAQ Content */}
           <div>
-            {/* Section Header */}
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <p className="text-overline text-text-muted mb-4 tracking-widest">
-                FAQ's
-              </p>
-              <h2 className="heading-lg text-text-primary font-serif">
-                Frequently Asked Questions
-              </h2>
-            </motion.div>
-
             {/* FAQ Items */}
             <div className="space-y-4">
               {faqs.map((faq, index) => (

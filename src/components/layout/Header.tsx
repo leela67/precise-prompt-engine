@@ -74,10 +74,10 @@ const Header = () => {
           <Link to="/" className="flex items-center">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
+                <span className="text-white font-bold text-sm italic">T</span>
               </div>
               <span className={`font-serif text-xl font-semibold ${textColorClass}`}>
-                Ambience
+                <span className="font-bold italic">T</span>erranova
               </span>
             </div>
           </Link>

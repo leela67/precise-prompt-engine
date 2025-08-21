@@ -1,4 +1,4 @@
-# Ambience Real Estate - Design Specification
+# Terranova Real Estate - Design Specification
 
 ## 1. Design Audit & Analysis
 
@@ -70,7 +70,7 @@
 #### Header/Navigation
 - **Height**: 72px
 - **Background**: White with 95% opacity + backdrop blur
-- **Logo**: 32px circular black icon with "A" + "Ambience" text
+- **Logo**: 32px circular black icon with "T" + "Terranova" text
 - **Navigation Items**: Right-aligned, 14px medium weight
 - **Mobile**: Hamburger menu with overlay
 
