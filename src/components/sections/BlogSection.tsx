@@ -1,4 +1,6 @@
 import { Calendar, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const BlogSection = () => {
   const posts = [
@@ -26,24 +28,33 @@ const BlogSection = () => {
     <section className="py-24 section-elevated">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-overline text-text-muted mb-4">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-overline text-text-muted mb-4 tracking-widest">
             Latest Insights & Market Trends
           </p>
-          <h2 className="heading-lg text-text-primary">
+          <h2 className="heading-lg text-text-primary font-serif">
             Real Estate Tips & Expert Advice
           </h2>
-        </div>
+        </motion.div>
 
         {/* Blog Posts Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, index) => (
-            <article 
+            <motion.article
               key={post.id}
-              className="group cursor-pointer animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <div className="card-elevated overflow-hidden">
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
                 {/* Post Image */}
                 <div className="relative overflow-hidden aspect-[3/2]">
                   <img
@@ -59,27 +70,33 @@ const BlogSection = () => {
                     <Calendar className="h-4 w-4" />
                     <time className="text-sm">{post.date}</time>
                   </div>
-                  
-                  <h3 className="font-medium text-text-primary mb-4 group-hover:text-brand-secondary transition-colors leading-snug">
+
+                  <h3 className="text-lg font-semibold text-text-primary mb-4 group-hover:text-primary-600 transition-colors leading-snug">
                     {post.title}
                   </h3>
 
-                  <div className="flex items-center text-sm font-medium text-brand-secondary group-hover:text-brand-primary transition-colors">
+                  <div className="flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700 transition-colors">
                     <span className="mr-2">Read More</span>
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12">
-          <a href="#blog" className="btn-primary">
-            View All Articles
-          </a>
-        </div>
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <Link to="/blog" className="btn-primary">
+            View All
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

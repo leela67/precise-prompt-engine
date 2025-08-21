@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface CounterProps {
   end: number;
@@ -8,8 +9,11 @@ interface CounterProps {
 
 const Counter = ({ end, suffix, duration = 2000 }: CounterProps) => {
   const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
+    if (!hasStarted) return;
+
     const increment = end / (duration / 16);
     const timer = setInterval(() => {
       setCount(prev => {
@@ -23,14 +27,21 @@ const Counter = ({ end, suffix, duration = 2000 }: CounterProps) => {
     }, 16);
 
     return () => clearInterval(timer);
-  }, [end, duration]);
+  }, [end, duration, hasStarted]);
 
   return (
-    <div className="text-center">
-      <div className="text-5xl lg:text-6xl font-light text-text-primary mb-2">
+    <motion.div
+      className="text-center"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8 }}
+      onViewportEnter={() => setHasStarted(true)}
+    >
+      <div className="text-5xl lg:text-6xl font-light text-white mb-2 font-serif">
         {Math.floor(count)}{suffix}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -54,31 +65,50 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="py-24 section-neutral">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative py-24 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://framerusercontent.com/images/V7bxnKBJLKWLeFJJsbtEAYNbc8.jpg"
+          alt="Luxury real estate background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-overline text-text-muted mb-4">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-overline text-white/80 mb-4 tracking-widest">
             Why Choose Us?
           </p>
-          <h2 className="heading-lg text-text-primary">
+          <h2 className="heading-lg text-white font-serif">
             More Than a Real Estate Agent
           </h2>
-        </div>
+        </motion.div>
 
         {/* Stats Grid */}
         <div className="grid md:grid-cols-3 gap-12">
           {stats.map((stat, index) => (
-            <div 
+            <motion.div
               key={stat.label}
-              className="text-center animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="text-center"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               <Counter end={stat.value} suffix={stat.suffix} />
-              <p className="text-body text-text-secondary font-medium">
+              <p className="text-lg text-white/90 font-medium mt-4">
                 {stat.label}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

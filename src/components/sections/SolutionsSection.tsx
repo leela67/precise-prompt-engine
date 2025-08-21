@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
+import { useState } from 'react'
 
 const solutions = [
   {
@@ -27,6 +28,8 @@ const solutions = [
 ]
 
 const SolutionsSection = () => {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -65,55 +68,71 @@ const SolutionsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Solutions Grid */}
+        {/* Solutions Accordion */}
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="flex flex-col md:flex-row gap-4 md:gap-2"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {solutions.map((solution) => (
-            <motion.div
-              key={solution.id}
-              variants={cardVariants}
-              className="group"
-              transition={{ duration: 0.8 }}
-            >
-              <Link to={solution.href} className="block">
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100">
-                  <img
-                    src={solution.image}
-                    alt={solution.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <h3 className="text-2xl font-light text-white mb-2 font-serif">
-                          {solution.title}
-                        </h3>
-                        <p className="text-white/80 text-sm">
-                          {solution.description}
-                        </p>
-                      </div>
-                      
-                      <div className="ml-4 flex-shrink-0">
-                        <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-                          <ArrowUpRight className="w-5 h-5 text-white" />
+          {solutions.map((solution, index) => {
+            const isHovered = hoveredCard === solution.id
+            const isAnyHovered = hoveredCard !== null
+            const shouldShrink = isAnyHovered && !isHovered
+
+            return (
+              <motion.div
+                key={solution.id}
+                variants={cardVariants}
+                className="group relative"
+                transition={{ duration: 0.8 }}
+                onMouseEnter={() => setHoveredCard(solution.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                style={{
+                  flex: isHovered ? '2' : shouldShrink ? '0.8' : '1',
+                  transition: 'flex 0.4s ease-in-out'
+                }}
+              >
+                <Link to={solution.href} className="block h-full">
+                  <motion.div
+                    className="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden bg-gray-100 h-full"
+                    layout
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    <img
+                      src={solution.image}
+                      alt={solution.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                      <div className="flex items-end justify-between">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-xl md:text-2xl font-light text-white mb-2 font-serif">
+                            {solution.title}
+                          </h3>
+                          <p className="text-white/80 text-sm">
+                            {solution.description}
+                          </p>
+                        </div>
+
+                        <div className="ml-4 flex-shrink-0">
+                          <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+                            <ArrowUpRight className="w-5 h-5 text-white" />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                  </motion.div>
+                </Link>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -25,50 +26,99 @@ const FAQSection = () => {
 
   return (
     <section className="py-24 section-neutral">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-overline text-text-muted mb-4">
-            FAQ's
-          </p>
-          <h2 className="heading-lg text-text-primary">
-            Frequently Asked Questions
-          </h2>
-        </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index}
-              className="border border-interactive-border rounded-2xl overflow-hidden animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-surface transition-colors"
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left Side - Animation/Visual */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center">
+              <motion.div
+                className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg"
+                animate={{
+                  y: [0, -20, 0],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
               >
-                <h3 className="font-medium text-text-primary pr-4">
-                  {faq.question}
-                </h3>
-                <div className="flex-shrink-0">
-                  {openIndex === index ? (
-                    <Minus className="h-5 w-5 text-text-secondary" />
-                  ) : (
-                    <Plus className="h-5 w-5 text-text-secondary" />
-                  )}
-                </div>
-              </button>
-              
-              {openIndex === index && (
-                <div className="px-8 pb-6">
-                  <p className="text-body text-text-secondary leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              )}
+                <div className="text-4xl">❓</div>
+              </motion.div>
             </div>
-          ))}
+          </motion.div>
+
+          {/* Right Side - FAQ Content */}
+          <div>
+            {/* Section Header */}
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+            >
+              <p className="text-overline text-text-muted mb-4 tracking-widest">
+                FAQ's
+              </p>
+              <h2 className="heading-lg text-text-primary font-serif">
+                Frequently Asked Questions
+              </h2>
+            </motion.div>
+
+            {/* FAQ Items */}
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  className="border-b border-neutral-200 last:border-b-0"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <button
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                    className="w-full py-6 text-left flex items-center justify-between hover:opacity-70 transition-opacity"
+                  >
+                    <h3 className="text-lg font-medium text-text-primary pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      <motion.div
+                        animate={{ rotate: openIndex === index ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Plus className="h-5 w-5 text-text-secondary" />
+                      </motion.div>
+                    </div>
+                  </button>
+
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      height: openIndex === index ? "auto" : 0,
+                      opacity: openIndex === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pb-6">
+                      <p className="text-text-secondary leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

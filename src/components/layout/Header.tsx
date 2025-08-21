@@ -35,7 +35,7 @@ const Header = () => {
 
   const getHeaderVariant = () => {
     if (scrollDirection === 'top') return 'hero'
-    if (scrollDirection === 'up') return 'hidden'
+    if (scrollDirection === 'down') return 'hidden'
     return 'visible'
   }
 

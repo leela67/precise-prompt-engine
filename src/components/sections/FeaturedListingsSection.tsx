@@ -1,4 +1,6 @@
-import { ArrowRight, Bed, Bath, DollarSign } from 'lucide-react';
+import { ArrowRight, Bed, Bath } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const FeaturedListingsSection = () => {
   const properties = [
@@ -47,12 +49,15 @@ const FeaturedListingsSection = () => {
         {/* Properties Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {properties.map((property, index) => (
-            <div 
+            <motion.div
               key={property.id}
-              className="group cursor-pointer animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <div className="card-elevated overflow-hidden">
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
                 {/* Property Image */}
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img
@@ -60,52 +65,48 @@ const FeaturedListingsSection = () => {
                     alt={property.address}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-white/90 text-text-primary rounded-full">
+                  {/* Status and Dot on Right Side */}
+                  <div className="absolute top-4 right-4 flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-white text-text-primary rounded-full">
                       {property.status}
                     </span>
                   </div>
                 </div>
 
-                {/* Property Details */}
+                {/* Property Details - No bottom border */}
                 <div className="p-6">
-                  <h3 className="font-medium text-text-primary mb-4 group-hover:text-brand-secondary transition-colors">
-                    {property.address}
-                  </h3>
-                  
+                  <div className="mb-4">
+                    <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-primary-600 transition-colors">
+                      {property.price}
+                    </h3>
+                    <p className="text-text-secondary text-sm leading-relaxed">
+                      {property.address}
+                    </p>
+                  </div>
+
                   {/* Property Features */}
-                  <div className="flex items-center gap-6 mb-4 text-text-secondary">
+                  <div className="flex items-center gap-4 text-text-muted text-sm">
                     <div className="flex items-center gap-1">
                       <Bed className="h-4 w-4" />
-                      <span className="text-sm">{property.bedrooms} Bedrooms</span>
+                      <span>{property.bedrooms} Bedrooms</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Bath className="h-4 w-4" />
-                      <span className="text-sm">{property.bathrooms} Bathrooms</span>
+                      <span>{property.bathrooms} Bathrooms</span>
                     </div>
-                  </div>
-
-                  {/* Price */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1">
-                      <DollarSign className="h-5 w-5 text-brand-secondary" />
-                      <span className="text-xl font-semibold text-text-primary">
-                        {property.price}
-                      </span>
-                    </div>
-                    <ArrowRight className="h-5 w-5 text-text-muted group-hover:text-brand-secondary group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <a href="#properties" className="btn-primary">
-            View All Properties
-          </a>
+          <Link to="/featured-properties" className="btn-primary">
+            View All
+          </Link>
         </div>
       </div>
     </section>
