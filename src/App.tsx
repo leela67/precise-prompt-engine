@@ -19,7 +19,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/precise-prompt-engine">
+      <BrowserRouter basename="/terranova">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/featured-properties" element={<FeaturedProperties />} />

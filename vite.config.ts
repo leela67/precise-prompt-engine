@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/precise-prompt-engine/",
+  base: "/terranova/",
   build: {
     outDir: "docs",
   },
