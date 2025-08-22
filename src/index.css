@@ -4,33 +4,35 @@
 
 /* Terranova Real Estate Design System - Luxury & Sophisticated */
 
+@import url('https://fonts.googleapis.com/css2?family=Italiana:wght@400&family=Raleway:wght@400;500;600;700&display=swap');
+
 @layer base {
   :root {
     /* Core Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 0 0% 7%;
+    --foreground: 0 0% 13%; /* ink-900 #212121 */
     --foreground-light: 0 0% 45%;
-    
+
     /* Luxury Palette */
-    --brand-primary: 0 0% 7%;
+    --brand-primary: 0 0% 13%; /* ink-900 #212121 */
     --brand-secondary: 35 25% 65%;
     --brand-accent: 45 15% 85%;
-    
+
     /* Surface Colors */
     --surface: 0 0% 98%;
     --surface-elevated: 0 0% 100%;
     --surface-muted: 220 13% 96%;
-    
+
     /* Text Hierarchy */
-    --text-primary: 0 0% 7%;
+    --text-primary: 0 0% 13%; /* ink-900 #212121 */
     --text-secondary: 0 0% 45%;
     --text-muted: 0 0% 65%;
     --text-inverse: 0 0% 95%;
     
     /* Interactive Elements */
-    --interactive-primary: 0 0% 7%;
+    --interactive-primary: 0 0% 13%; /* ink-900 #212121 */
     --interactive-secondary: 0 0% 95%;
-    --interactive-hover: 0 0% 15%;
+    --interactive-hover: 0 0% 20%;
     --interactive-border: 0 0% 85%;
     
     /* Overlays & Gradients */
@@ -130,52 +132,118 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Raleway", "Raleway Placeholder", sans-serif;
+    font-weight: 400;
   }
   
   /* Typography Scale */
   .heading-display {
-    @apply text-6xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[0.9];
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: "Italiana", "Italiana Placeholder", serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.1;
     color: hsl(var(--text-primary));
   }
-  
+
+  @media (min-width: 768px) {
+    .heading-display {
+      font-size: 64px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .heading-display {
+      font-size: 180px;
+    }
+  }
+
   .heading-xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight;
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: "Italiana", "Italiana Placeholder", serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: hsl(var(--text-primary));
   }
-  
+
+  @media (min-width: 768px) {
+    .heading-xl {
+      font-size: 41px;
+    }
+  }
+
   .heading-lg {
-    @apply text-3xl md:text-4xl font-light tracking-tight leading-tight;
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: "Italiana", "Italiana Placeholder", serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: hsl(var(--text-primary));
   }
-  
+
+  @media (min-width: 768px) {
+    .heading-lg {
+      font-size: 41px;
+    }
+  }
+
   .heading-md {
-    @apply text-2xl md:text-3xl font-normal tracking-tight leading-tight;
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: "Italiana", "Italiana Placeholder", serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: hsl(var(--text-primary));
   }
-  
+
+  @media (min-width: 768px) {
+    .heading-md {
+      font-size: 32px;
+    }
+  }
+
   .heading-sm {
-    @apply text-xl md:text-2xl font-medium tracking-tight leading-tight;
+    font-family: "Italiana", "Italiana Placeholder", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: hsl(var(--text-primary));
+  }
+
+  @media (min-width: 768px) {
+    .heading-sm {
+      font-size: 24px;
+    }
   }
   
   .text-body-lg {
-    @apply text-lg leading-relaxed;
+    font-family: "Raleway", "Raleway Placeholder", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3;
     color: hsl(var(--text-secondary));
   }
-  
+
   .text-body {
-    @apply text-base leading-relaxed;
+    font-family: "Raleway", "Raleway Placeholder", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
     color: hsl(var(--text-secondary));
   }
-  
+
   .text-caption {
-    @apply text-sm leading-normal;
+    font-family: "Raleway", "Raleway Placeholder", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
     color: hsl(var(--text-muted));
   }
-  
+
   .text-overline {
-    @apply text-xs font-medium uppercase tracking-wide;
+    font-family: "Raleway", "Raleway Placeholder", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
     color: hsl(var(--text-muted));
   }
 }

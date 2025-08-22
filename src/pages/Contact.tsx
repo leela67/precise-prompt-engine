@@ -8,20 +8,30 @@ const Contact = () => {
     <div className="min-h-screen">
       <Header />
       
-      <main className="pt-24">
+      <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-24 bg-gray-50">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop&crop=center"
+              alt="Modern office space for real estate consultations"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
             <motion.div
-              className="text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="heading-xl text-text-primary mb-6">
+              <h1 className="heading-display text-white mb-6">
                 Let's Connect
               </h1>
-              <p className="text-body-lg text-text-secondary max-w-2xl mx-auto">
+              <p className="text-body-lg text-white/90 max-w-2xl mx-auto">
                 Ready to start your real estate journey? Get in touch today and let's make it happen.
               </p>
             </motion.div>

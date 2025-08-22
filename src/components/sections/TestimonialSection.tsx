@@ -6,11 +6,11 @@ const TestimonialSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://framerusercontent.com/images/qyrHS8yHxWjbGejCnaNbfZZL9w.jpg"
-          alt="Testimonial background"
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop&crop=center"
+          alt="Luxury real estate testimonial background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 lg:px-8 text-center">
@@ -22,11 +22,11 @@ const TestimonialSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <div className="w-20 h-20 mx-auto mb-6">
+          <div className="w-24 h-24 mx-auto mb-6">
             <img
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face"
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face"
               alt="Emily Carter - Client"
-              className="w-full h-full object-cover rounded-full shadow-lg border-4 border-white"
+              className="w-full h-full object-cover rounded-full shadow-xl border-4 border-white/90"
             />
           </div>
         </motion.div>

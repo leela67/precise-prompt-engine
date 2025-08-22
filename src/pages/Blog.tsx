@@ -59,13 +59,24 @@ const Blog = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-24 bg-gradient-to-b from-neutral-50 to-white">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="heading-xl text-text-primary mb-6">
+        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop&crop=center"
+              alt="Real estate market insights and trends"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <div>
+              <h1 className="heading-display text-white mb-6">
                 Latest Insights & Market Trends
               </h1>
-              <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+              <p className="text-body-lg text-white/90 max-w-3xl mx-auto">
                 Real Estate Tips & Expert Advice
               </p>
             </div>

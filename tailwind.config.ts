@@ -82,8 +82,9 @@ export default {
 				'gradient-section': 'var(--gradient-section)'
 			},
 			fontFamily: {
-				serif: ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-				sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+				serif: ['Italiana', 'Italiana Placeholder', 'serif'],
+				sans: ['Raleway', 'Raleway Placeholder', 'sans-serif'],
+				display: ['Italiana', 'Italiana Placeholder', 'serif']
 			},
 			spacing: {
 				'18': '4.5rem',

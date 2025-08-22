@@ -69,7 +69,7 @@ const Header = () => {
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center" style={{ paddingTop: '18.5px', paddingBottom: '18.5px' }}>
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <div className="flex items-center space-x-2">
