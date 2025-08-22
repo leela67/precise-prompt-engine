@@ -79,7 +79,7 @@ const FeaturedProperties = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[3/2] overflow-hidden">
                     <img
                       src={property.image}
                       alt={property.address}

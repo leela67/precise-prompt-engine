@@ -59,7 +59,7 @@ const FeaturedListingsSection = () => {
             >
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
                 {/* Property Image */}
-                <div className="relative overflow-hidden aspect-[4/3]">
+                <div className="relative overflow-hidden aspect-[3/2]">
                   <img
                     src={property.image}
                     alt={property.address}

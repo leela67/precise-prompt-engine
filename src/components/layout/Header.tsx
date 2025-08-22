@@ -14,10 +14,21 @@ const Header = () => {
     { name: "Let's Connect", href: '/contact' }
   ]
 
+  // Set initial scroll position on mount
+  useEffect(() => {
+    const initialScrollY = window.scrollY
+    if (initialScrollY < 100) {
+      setScrollDirection('top')
+    } else {
+      setScrollDirection('up')
+    }
+    setLastScrollY(initialScrollY)
+  }, [])
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      
+
       if (currentScrollY < 100) {
         setScrollDirection('top')
       } else if (currentScrollY > lastScrollY) {
@@ -25,7 +36,7 @@ const Header = () => {
       } else {
         setScrollDirection('up')
       }
-      
+
       setLastScrollY(currentScrollY)
     }
 
@@ -88,7 +99,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium ${textColorClass} hover:opacity-70 transition-all duration-300 ease-out`}
+                className={`text-base lg:text-lg font-medium ${textColorClass} hover:opacity-70 transition-all duration-300 ease-out`}
               >
                 {item.name}
               </Link>
@@ -130,7 +141,7 @@ const Header = () => {
                     <Link
                       to={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="block text-base font-medium text-text-secondary hover:text-text-primary transition-all duration-300 ease-out py-2"
+                      className="block text-lg font-medium text-text-secondary hover:text-text-primary transition-all duration-300 ease-out py-2"
                     >
                       {item.name}
                     </Link>

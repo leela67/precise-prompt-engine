@@ -22,9 +22,9 @@ const TestimonialSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <div className="w-24 h-24 mx-auto mb-6">
+          <div className="w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-6">
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face"
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
               alt="Emily Carter - Client"
               className="w-full h-full object-cover rounded-full shadow-xl border-4 border-white/90"
             />
