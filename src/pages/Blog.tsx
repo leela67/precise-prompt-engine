@@ -45,7 +45,7 @@ const Blog = () => {
     },
     {
       id: 6,
-      title: "Navigating the California Real Estate Market",
+      title: "Navigating the Hyderabad Real Estate Market",
       date: "Dec 20, 2024",
       excerpt: "Expert insights into California's unique real estate landscape and opportunities.",
       image: "/api/placeholder/400/250",

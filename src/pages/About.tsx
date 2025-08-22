@@ -28,7 +28,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="heading-display text-white mb-6">
-                About Olivia
+                About Terranova
               </h1>
               <p className="text-body-lg text-white/90 max-w-2xl mx-auto">
                 More than a Real Estate Agent
@@ -48,7 +48,7 @@ const About = () => {
               >
                 <img
                   src="https://framerusercontent.com/images/1DvKVpy6gPlZtL3SpcE6uWTvxA.jpg"
-                  alt="Olivia Sinclair - Real Estate Professional"
+                  alt="Terranova - Real Estate Professional"
                   className="w-full h-[600px] object-cover rounded-2xl shadow-lg"
                 />
               </motion.div>
@@ -64,7 +64,7 @@ const About = () => {
                 
                 <div className="space-y-6 text-body text-text-secondary">
                   <p>
-                    Olivia Foster has always been driven by a deep interest in architecture and design, 
+                    Terranova Foster has always been driven by a deep interest in architecture and design, 
                     which led her to pursue a career in real estate.
                   </p>
                   
@@ -76,7 +76,7 @@ const About = () => {
                   
                   <p>
                     With over 15 years of experience and more than 250 successful transactions, 
-                    Olivia has established herself as one of California's premier real estate professionals.
+                    Terranova has established herself as one of California's premier real estate professionals.
                   </p>
                   
                   <p>

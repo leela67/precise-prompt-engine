@@ -18,11 +18,11 @@ const AboutSection = () => {
               About me
             </p>
             <h2 className="heading-section content-spacing">
-              About Olivia
+              About Terranova
             </h2>
             <div className="space-y-4 lg:space-y-6">
               <p className="text-body">
-                Olivia Foster has always been driven by a deep interest in architecture and design, which led her to pursue a career in real estate.
+                Terranova Foster has always been driven by a deep interest in architecture and design, which led her to pursue a career in real estate.
               </p>
               <p className="text-body">
                 After earning a degree in Real Estate & Property Management from the University of California, Berkeley, she immediately immersed herself in the industry, gaining valuable experience with top agencies in the region.
@@ -46,7 +46,7 @@ const AboutSection = () => {
             <div className="relative">
               <img
                 src="https://framerusercontent.com/images/qyrHS8yHxWjbGejCnaNbfZZL9w.jpg"
-                alt="Olivia Sinclair - Real Estate Professional"
+                alt="Terranova - Real Estate Professional"
                 className="w-full h-[600px] object-cover rounded-2xl shadow-elevated"
               />
               <div className="absolute inset-0 rounded-2xl ring-1 ring-black/5"></div>

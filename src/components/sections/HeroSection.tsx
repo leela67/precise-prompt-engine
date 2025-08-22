@@ -73,7 +73,7 @@ const HeroSection = () => {
           variants={itemVariants}
           className="heading-hero mb-6"
         >
-          Olivia Sinclair
+          Terranova
         </motion.h1>
 
         {/* Subtitle */}
@@ -81,7 +81,7 @@ const HeroSection = () => {
           variants={itemVariants}
           className="text-subtitle mb-12"
         >
-          California Real Estate
+          Hyderabad Real Estate
         </motion.p>
         
         {/* CTA Buttons */}

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A modern, responsive real estate website built for Olivia Sinclair's California real estate business. Features luxury property listings, agent information, and seamless user experience.
+A modern, responsive real estate website built for Terranova's Hyderabad Real Estate business. Features luxury property listings, agent information, and seamless user experience.
 
 ## Getting Started
 
