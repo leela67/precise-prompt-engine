@@ -25,7 +25,7 @@ const AboutSection = () => {
                 Terranova Foster has always been driven by a deep interest in architecture and design, which led her to pursue a career in real estate.
               </p>
               <p className="text-body">
-                After earning a degree in Real Estate & Property Management from the University of California, Berkeley, she immediately immersed herself in the industry, gaining valuable experience with top agencies in the region.
+                After earning a degree in Real Estate & Property Management from the University of Hyderabad, Berkeley, she immediately immersed herself in the industry, gaining valuable experience with top agencies in the region.
               </p>
             </div>
             <div className="mt-6 lg:mt-8">

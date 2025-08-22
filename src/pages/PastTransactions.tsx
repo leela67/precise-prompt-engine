@@ -27,7 +27,7 @@ const PastTransactions = () => {
     },
     {
       id: 3,
-      address: "245 Oceanview Drive, Malibu, California",
+      address: "245 Oceanview Drive, Malibu, Hyderabad",
       price: "$4,750,000",
       status: "Sold",
       date: "January 2024",

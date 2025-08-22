@@ -1,35 +1,35 @@
-import { ArrowRight, Bed, Bath } from 'lucide-react';
+import { Bed, Bath } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const FeaturedListingsSection = () => {
   const properties = [
     {
-      id: '1',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop&crop=center',
+      id: 'naysha',
+      image: '../../../images/Nyhsha/Screenshot 2025-08-17 at 5.57.31ÔÇ»PM.png',
       status: 'For Sale',
-      address: '780 Palm Island Drive, Miami Beach, FL',
-      bedrooms: 6,
-      bathrooms: 7.5,
-      price: '$8,750,000'
-    },
-    {
-      id: '2',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&crop=center',
-      status: 'For Sale',
-      address: '150 Central Park South, New York, NY',
+      address: 'Naysha - Premium Residential Complex, Hyderabad',
       bedrooms: 3,
-      bathrooms: 4,
-      price: '$5,150,000'
+      bathrooms: 3,
+      description: 'Modern luxury apartments with contemporary design and premium amenities in the heart of Hyderabad.'
     },
     {
-      id: '3',
-      image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop&crop=center',
+      id: 'golden-palm',
+      image: '/images/The Golden Palm/Screenshot 2025-08-17 at 6.01.46ÔÇ»PM.png',
       status: 'For Sale',
-      address: '245 Oceanview Drive, Malibu, California',
-      bedrooms: 5,
-      bathrooms: 5.5,
-      price: '$4,750,000'
+      address: 'The Golden Palm - Luxury Villas, Hyderabad',
+      bedrooms: 4,
+      bathrooms: 4,
+      description: 'Exclusive villa community offering spacious homes with world-class facilities and serene surroundings.'
+    },
+    {
+      id: 'silver-leaf',
+      image: '/images/The Silver Leaf/Screenshot 2025-08-17 at 6.05.34ÔÇ»PM.png',
+      status: 'For Sale',
+      address: 'The Silver Leaf - Elite Residences, Hyderabad',
+      bedrooms: 2,
+      bathrooms: 2,
+      description: 'Sophisticated residential towers featuring elegant design and premium lifestyle amenities.'
     }
   ];
 
@@ -51,13 +51,14 @@ const FeaturedListingsSection = () => {
           {properties.map((property, index) => (
             <motion.div
               key={property.id}
-              className="group cursor-pointer"
+              className="group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Link to={`/property/${property.id}`} className="block">
+                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
                 {/* Property Image */}
                 <div className="relative overflow-hidden aspect-[3/2]">
                   <img
@@ -74,14 +75,14 @@ const FeaturedListingsSection = () => {
                   </div>
                 </div>
 
-                {/* Property Details - No bottom border */}
+                {/* Property Details - No price display */}
                 <div className="p-6">
                   <div className="mb-4">
                     <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-primary-600 transition-colors">
-                      {property.price}
+                      {property.address}
                     </h3>
                     <p className="text-text-secondary text-sm leading-relaxed">
-                      {property.address}
+                      {property.description}
                     </p>
                   </div>
 
@@ -98,6 +99,7 @@ const FeaturedListingsSection = () => {
                   </div>
                 </div>
               </div>
+              </Link>
             </motion.div>
           ))}
         </div>

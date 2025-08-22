@@ -29,9 +29,9 @@ const Blog = () => {
     },
     {
       id: 4,
-      title: "Understanding Property Investment in California",
+      title: "Understanding Property Investment in Hyderabad",
       date: "Jan 15, 2025",
-      excerpt: "A comprehensive guide to real estate investment opportunities in California.",
+      excerpt: "A comprehensive guide to real estate investment opportunities in Hyderabad.",
       image: "/api/placeholder/400/250",
       category: "Investment"
     },
@@ -47,7 +47,7 @@ const Blog = () => {
       id: 6,
       title: "Navigating the Hyderabad Real Estate Market",
       date: "Dec 20, 2024",
-      excerpt: "Expert insights into California's unique real estate landscape and opportunities.",
+      excerpt: "Expert insights into Hyderabad's unique real estate landscape and opportunities.",
       image: "/api/placeholder/400/250",
       category: "Market Analysis"
     }

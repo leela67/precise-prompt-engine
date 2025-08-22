@@ -1,21 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 
-interface HeaderProps {
-  initialTransparent?: boolean;
-}
-
-const Header = ({ initialTransparent = false }: HeaderProps) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { scrollDirection } = useScrollDirection()
-  const location = useLocation()
   
-  // Determine if we should show transparent header based on route and scroll
-  const isHomePage = location.pathname === '/'
-  const shouldBeTransparent = (isHomePage || initialTransparent) && scrollDirection === 'top'
+  // Determine if we should show transparent header based on scroll position
+  // All pages should have transparent header when at the top
+  const shouldBeTransparent = scrollDirection === 'top'
 
   const navigation = [
     { name: 'Featured Properties', href: '/featured-properties' },

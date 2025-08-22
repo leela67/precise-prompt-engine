@@ -34,7 +34,7 @@ const FeaturedProperties = () => {
                 Featured Properties
               </h1>
               <p className="text-body-lg text-white/90 max-w-2xl mx-auto">
-                Discover our carefully curated collection of luxury properties in California's most desirable locations.
+                Discover our carefully curated collection of luxury properties in Hyderabad's most desirable locations.
               </p>
             </motion.div>
           </div>

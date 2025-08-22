@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface PropertyCarouselProps {
   images: string[];
   alt: string;
+  fullScreen?: boolean;
 }
 
-export default function PropertyCarousel({ images, alt }: PropertyCarouselProps) {
+export default function PropertyCarousel({ images, alt, fullScreen = false }: PropertyCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -21,7 +22,11 @@ export default function PropertyCarousel({ images, alt }: PropertyCarouselProps)
   if (!images.length) return null;
 
   return (
-    <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 rounded-lg">
+    <div className={`relative w-full overflow-hidden bg-gray-100 ${
+      fullScreen
+        ? 'h-full'
+        : 'aspect-[16/9] rounded-lg'
+    }`}>
       {/* Main Image Display */}
       <div className="relative w-full h-full">
         <AnimatePresence mode="wait">

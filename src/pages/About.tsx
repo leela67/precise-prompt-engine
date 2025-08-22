@@ -70,13 +70,13 @@ const About = () => {
                   
                   <p>
                     After earning a degree in Real Estate & Property Management from the University of 
-                    California, Berkeley, she immediately immersed herself in the industry, gaining 
+                    Hyderabad, Berkeley, she immediately immersed herself in the industry, gaining 
                     valuable experience with top agencies in the region.
                   </p>
                   
                   <p>
                     With over 15 years of experience and more than 250 successful transactions, 
-                    Terranova has established herself as one of California's premier real estate professionals.
+                    Terranova has established herself as one of Hyderabad's premier real estate professionals.
                   </p>
                   
                   <p>

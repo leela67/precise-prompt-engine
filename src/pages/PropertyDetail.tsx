@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import PropertyCarousel from '@/components/PropertyCarousel';
 import { getPropertyById } from '@/data/properties';
 import { motion } from 'framer-motion';
-import { Bed, Bath, ArrowLeft } from 'lucide-react';
+import { Bed, Bath } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PropertyDetail = () => {
@@ -22,36 +22,23 @@ const PropertyDetail = () => {
 
   return (
     <div className="min-h-screen">
-      <Header initialTransparent />
-      
-      <main className="pt-20">
-        {/* Back Navigation */}
-        <section className="py-6 border-b border-gray-200">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <Link 
-              to="/featured-properties"
-              className="inline-flex items-center text-text-secondary hover:text-text-primary transition-colors duration-200"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Featured Properties
-            </Link>
-          </div>
-        </section>
+      <Header />
 
-        {/* Property Carousel */}
-        <section className="py-8">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <PropertyCarousel 
-                images={property.images} 
-                alt={property.title}
-              />
-            </motion.div>
-          </div>
+      <main>
+        {/* Full-Screen Hero Carousel */}
+        <section className="relative h-screen">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="h-full"
+          >
+            <PropertyCarousel
+              images={property.images}
+              alt={property.title}
+              fullScreen={true}
+            />
+          </motion.div>
         </section>
 
         {/* Property Information */}
