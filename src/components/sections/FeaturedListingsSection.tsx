@@ -6,30 +6,30 @@ const FeaturedListingsSection = () => {
   const properties = [
     {
       id: 'naysha',
-      image: '../../../images/Nyhsha/Screenshot 2025-08-17 at 5.57.31ÔÇ»PM.png',
+      image: '/terranova/images/naysha/1.png',
       status: 'For Sale',
       address: 'Naysha - Premium Residential Complex, Hyderabad',
       bedrooms: 3,
       bathrooms: 3,
-      description: 'Modern luxury apartments with contemporary design and premium amenities in the heart of Hyderabad.'
+      // description: 'Modern luxury apartments with contemporary design and premium amenities in the heart of Hyderabad.'
     },
     {
       id: 'golden-palm',
-      image: '/images/The Golden Palm/Screenshot 2025-08-17 at 6.01.46ÔÇ»PM.png',
+      image: '/terranova/images/goldenleaf/1.png',
       status: 'For Sale',
       address: 'The Golden Palm - Luxury Villas, Hyderabad',
       bedrooms: 4,
       bathrooms: 4,
-      description: 'Exclusive villa community offering spacious homes with world-class facilities and serene surroundings.'
+      // description: 'Exclusive villa community offering spacious homes with world-class facilities and serene surroundings.'
     },
     {
       id: 'silver-leaf',
-      image: '/images/The Silver Leaf/Screenshot 2025-08-17 at 6.05.34ÔÇ»PM.png',
+      image: '/terranova/images/silver/1.png',
       status: 'For Sale',
       address: 'The Silver Leaf - Elite Residences, Hyderabad',
       bedrooms: 2,
       bathrooms: 2,
-      description: 'Sophisticated residential towers featuring elegant design and premium lifestyle amenities.'
+      // description: 'Sophisticated residential towers featuring elegant design and premium lifestyle amenities.'
     }
   ];
 
@@ -57,7 +57,7 @@ const FeaturedListingsSection = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <Link to={`/property/${property.id}`} className="block">
+              <Link to={`/properties/${property.id}`} className="block">
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
                 {/* Property Image */}
                 <div className="relative overflow-hidden aspect-[3/2]">
@@ -81,9 +81,9 @@ const FeaturedListingsSection = () => {
                     <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-primary-600 transition-colors">
                       {property.address}
                     </h3>
-                    <p className="text-text-secondary text-sm leading-relaxed">
+                    {/* <p className="text-text-secondary text-sm leading-relaxed">
                       {property.description}
-                    </p>
+                    </p> */}
                   </div>
 
                   {/* Property Features */}

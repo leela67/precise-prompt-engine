@@ -1,6 +1,6 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { ScrollScaleImage } from '@/components/ScrollScaleImage'
+
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { properties } from '@/data/properties'
@@ -8,7 +8,7 @@ import { properties } from '@/data/properties'
 const FeaturedProperties = () => {
   return (
     <div className="min-h-screen">
-      <Header initialTransparent />
+      <Header />
       
       <main className="pt-20">
         {/* Hero Section */}
@@ -53,7 +53,7 @@ const FeaturedProperties = () => {
                 >
                   <Link to={`/properties/${property.id}`} className="group block">
                     <div className="card-elevated overflow-hidden cursor-pointer">
-                      <ScrollScaleImage className="relative aspect-[3/2] overflow-hidden">
+                      <div className="relative aspect-[3/2] overflow-hidden">
                         <img
                           src={property.images[0]}
                           alt={property.address}
@@ -68,7 +68,7 @@ const FeaturedProperties = () => {
                             For Sale
                           </span>
                         </div>
-                      </ScrollScaleImage>
+                      </div>
                       
                       <div className="p-6">
                         <h3 className="text-lg font-medium text-text-primary mb-2 group-hover:text-primary transition-colors duration-200">
