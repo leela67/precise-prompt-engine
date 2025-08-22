@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 section-elevated">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="section-padding section-elevated">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             className="order-2 lg:order-1"
@@ -14,21 +14,21 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-overline text-text-muted mb-4 tracking-widest">
+            <p className="text-overline text-text-muted content-spacing tracking-widest">
               About me
             </p>
-            <h2 className="heading-lg text-text-primary mb-8 font-serif">
+            <h2 className="heading-section content-spacing">
               About Olivia
             </h2>
-            <div className="space-y-6 text-lg leading-relaxed text-text-secondary">
-              <p>
+            <div className="space-y-4 lg:space-y-6">
+              <p className="text-body">
                 Olivia Foster has always been driven by a deep interest in architecture and design, which led her to pursue a career in real estate.
               </p>
-              <p>
+              <p className="text-body">
                 After earning a degree in Real Estate & Property Management from the University of California, Berkeley, she immediately immersed herself in the industry, gaining valuable experience with top agencies in the region.
               </p>
             </div>
-            <div className="mt-8">
+            <div className="mt-6 lg:mt-8">
               <Link to="/about" className="btn-primary">
                 Learn More
               </Link>

@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana:wght@400&family=Raleway:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Terranova Real Estate Design System - Luxury & Sophisticated */
-
-@import url('https://fonts.googleapis.com/css2?family=Italiana:wght@400&family=Raleway:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -136,50 +136,175 @@
     font-weight: 400;
   }
   
-  /* Typography Scale */
-  .heading-display {
+  /* Responsive Typography Scale - Based on Ambience Reference */
+
+  /* Hero Text - Italiana font for main hero headings */
+  .heading-hero {
     font-family: "Italiana", "Italiana Placeholder", serif;
-    font-size: 48px;
     font-weight: 400;
+    color: #FFFFFF;
     line-height: 1.1;
-    color: hsl(var(--text-primary));
+
+    /* Mobile (640px - 809px) */
+    font-size: 41px;
   }
 
-  @media (min-width: 768px) {
-    .heading-display {
+  @media (min-width: 810px) and (max-width: 1054px) {
+    /* Tablet (810px - 1054px) */
+    .heading-hero {
+      font-size: 78px;
+    }
+  }
+
+  @media (min-width: 1055px) and (max-width: 1528px) {
+    /* Desktop (1055px - 1528px) */
+    .heading-hero {
+      font-size: 150px;
+      line-height: 1.0;
+    }
+  }
+
+  /* Section Headings - Italiana font for section titles */
+  .heading-section {
+    font-family: "Italiana", "Italiana Placeholder", serif;
+    font-weight: 400;
+    color: #212121;
+    line-height: 1.2;
+
+    /* Mobile (640px - 809px) */
+    font-size: 32px;
+  }
+
+  @media (min-width: 810px) and (max-width: 1054px) {
+    /* Tablet (810px - 1054px) */
+    .heading-section {
+      font-size: 41px;
+    }
+  }
+
+  @media (min-width: 1055px) and (max-width: 1528px) {
+    /* Desktop (1055px - 1528px) */
+    .heading-section {
       font-size: 64px;
     }
   }
 
-  @media (min-width: 1024px) {
+  /* Subtitles/Paragraphs - Raleway font for body content */
+  .text-subtitle {
+    font-family: "Raleway", "Raleway Placeholder", sans-serif;
+    font-weight: 400;
+    color: #FFFFFF;
+
+    /* Mobile (640px - 809px) */
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 810px) and (max-width: 1054px) {
+    /* Tablet (810px - 1054px) */
+    .text-subtitle {
+      font-size: 24px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (min-width: 1055px) and (max-width: 1528px) {
+    /* Desktop (1055px - 1528px) */
+    .text-subtitle {
+      font-size: 26px;
+      line-height: 1.6;
+    }
+  }
+
+  /* Additional Subsections - Raleway font for secondary content */
+  .text-subsection {
+    font-family: "Raleway", "Raleway Placeholder", sans-serif;
+    font-weight: 400;
+    color: #FFFFFF;
+
+    /* Mobile (640px - 809px) */
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 810px) and (max-width: 1054px) {
+    /* Tablet (810px - 1054px) */
+    .text-subsection {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (min-width: 1055px) and (max-width: 1528px) {
+    /* Desktop (1055px - 1528px) */
+    .text-subsection {
+      font-size: 22px;
+      line-height: 1.5;
+    }
+  }
+
+  /* Legacy Typography Classes - Updated for consistency */
+  .heading-display {
+    font-family: "Italiana", "Italiana Placeholder", serif;
+    font-weight: 400;
+    color: hsl(var(--text-primary));
+    line-height: 1.1;
+
+    /* Mobile */
+    font-size: 41px;
+  }
+
+  @media (min-width: 810px) and (max-width: 1054px) {
     .heading-display {
-      font-size: 180px;
+      font-size: 78px;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    .heading-display {
+      font-size: 150px;
     }
   }
 
   .heading-xl {
     font-family: "Italiana", "Italiana Placeholder", serif;
-    font-size: 32px;
     font-weight: 400;
     line-height: 1.2;
     color: hsl(var(--text-primary));
+
+    /* Mobile */
+    font-size: 32px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 810px) {
     .heading-xl {
       font-size: 41px;
     }
   }
 
+  @media (min-width: 1055px) {
+    .heading-xl {
+      font-size: 64px;
+    }
+  }
+
   .heading-lg {
     font-family: "Italiana", "Italiana Placeholder", serif;
-    font-size: 28px;
     font-weight: 400;
     line-height: 1.2;
     color: hsl(var(--text-primary));
+
+    /* Mobile */
+    font-size: 28px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 810px) {
+    .heading-lg {
+      font-size: 32px;
+    }
+  }
+
+  @media (min-width: 1055px) {
     .heading-lg {
       font-size: 41px;
     }
@@ -187,13 +312,21 @@
 
   .heading-md {
     font-family: "Italiana", "Italiana Placeholder", serif;
-    font-size: 24px;
     font-weight: 400;
     line-height: 1.2;
     color: hsl(var(--text-primary));
+
+    /* Mobile */
+    font-size: 24px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 810px) {
+    .heading-md {
+      font-size: 28px;
+    }
+  }
+
+  @media (min-width: 1055px) {
     .heading-md {
       font-size: 32px;
     }
@@ -201,100 +334,263 @@
 
   .heading-sm {
     font-family: "Italiana", "Italiana Placeholder", serif;
-    font-size: 20px;
     font-weight: 400;
     line-height: 1.2;
     color: hsl(var(--text-primary));
+
+    /* Mobile */
+    font-size: 20px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 810px) {
+    .heading-sm {
+      font-size: 22px;
+    }
+  }
+
+  @media (min-width: 1055px) {
     .heading-sm {
       font-size: 24px;
     }
   }
-  
+
   .text-body-lg {
     font-family: "Raleway", "Raleway Placeholder", sans-serif;
-    font-size: 18px;
     font-weight: 400;
-    line-height: 1.3;
     color: hsl(var(--text-secondary));
+
+    /* Mobile */
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 810px) {
+    .text-body-lg {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    .text-body-lg {
+      font-size: 22px;
+      line-height: 1.5;
+    }
   }
 
   .text-body {
     font-family: "Raleway", "Raleway Placeholder", sans-serif;
-    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     color: hsl(var(--text-secondary));
+
+    /* Mobile */
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 810px) {
+    .text-body {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    .text-body {
+      font-size: 20px;
+      line-height: 1.6;
+    }
   }
 
   .text-caption {
     font-family: "Raleway", "Raleway Placeholder", sans-serif;
-    font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
     color: hsl(var(--text-muted));
+
+    /* Mobile */
+    font-size: 14px;
+  }
+
+  @media (min-width: 810px) {
+    .text-caption {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    .text-caption {
+      font-size: 16px;
+    }
   }
 
   .text-overline {
     font-family: "Raleway", "Raleway Placeholder", sans-serif;
-    font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
-    line-height: 1.3;
     letter-spacing: 0.05em;
     color: hsl(var(--text-muted));
+
+    /* Mobile */
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  @media (min-width: 810px) {
+    .text-overline {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    .text-overline {
+      font-size: 16px;
+    }
   }
 }
 
 @layer components {
+  /* Responsive Spacing System */
+  .section-padding {
+    /* Mobile (640px - 809px) */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 810px) and (max-width: 1054px) {
+    /* Tablet (810px - 1054px) */
+    .section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    /* Desktop (1055px+) */
+    .section-padding {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .hero-padding {
+    /* Mobile */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 810px) and (max-width: 1054px) {
+    /* Tablet */
+    .hero-padding {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    /* Desktop */
+    .hero-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .content-spacing {
+    /* Mobile */
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 810px) and (max-width: 1054px) {
+    /* Tablet */
+    .content-spacing {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (min-width: 1055px) {
+    /* Desktop */
+    .content-spacing {
+      margin-bottom: 2.5rem;
+    }
+  }
+
   /* Button Variants */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-full;
+    @apply inline-flex items-center justify-center text-sm font-medium rounded-full;
     @apply bg-black text-white hover:bg-gray-900 focus:ring-2 focus:ring-black focus:ring-offset-2;
-    @apply transition-all duration-200 ease-out;
+    @apply transition-all duration-300 ease-out;
     background: hsl(var(--interactive-primary));
     color: hsl(var(--text-inverse));
+
+    /* Mobile */
+    padding: 0.75rem 1.5rem;
   }
-  
+
+  @media (min-width: 810px) {
+    .btn-primary {
+      padding: 1rem 2rem;
+    }
+  }
+
   .btn-primary:hover {
     background: hsl(var(--interactive-hover));
     transform: translateY(-1px);
     box-shadow: var(--shadow-lg);
   }
-  
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-full;
+    @apply inline-flex items-center justify-center text-sm font-medium rounded-full;
     @apply bg-transparent border-2 hover:bg-black hover:text-white focus:ring-2 focus:ring-black focus:ring-offset-2;
-    @apply transition-all duration-200 ease-out;
+    @apply transition-all duration-300 ease-out;
     border-color: hsl(var(--interactive-border));
     color: hsl(var(--text-primary));
+
+    /* Mobile */
+    padding: 0.75rem 1.5rem;
   }
-  
+
+  @media (min-width: 810px) {
+    .btn-secondary {
+      padding: 1rem 2rem;
+    }
+  }
+
   .btn-secondary:hover {
     background: hsl(var(--interactive-primary));
     color: hsl(var(--text-inverse));
     transform: translateY(-1px);
   }
-  
+
   /* Cards */
   .card-elevated {
     @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
     background: hsl(var(--surface-elevated));
     box-shadow: var(--shadow-md);
   }
-  
+
   .card-elevated:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
   }
-  
+
   /* Section Backgrounds */
   .section-neutral {
     background: hsl(var(--surface));
   }
-  
+
   .section-elevated {
     background: hsl(var(--surface-elevated));
   }

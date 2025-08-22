@@ -50,20 +50,20 @@ const SolutionsSection = () => {
   }
 
   return (
-    <section className="py-24 section-neutral">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="section-padding section-neutral">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-overline text-text-muted mb-4">
+          <p className="text-overline text-text-muted content-spacing">
             How Can We Help?
           </p>
-          <h2 className="heading-lg text-text-primary">
+          <h2 className="heading-section">
             Explore Our Solutions
           </h2>
         </motion.div>

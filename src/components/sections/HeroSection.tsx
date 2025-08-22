@@ -71,15 +71,15 @@ const HeroSection = () => {
         {/* Main Heading */}
         <motion.h1
           variants={itemVariants}
-          className="heading-display text-text-inverse mb-6"
+          className="heading-hero mb-6"
         >
           Olivia Sinclair
         </motion.h1>
-        
+
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="text-body-lg text-text-inverse mb-12"
+          className="text-subtitle mb-12"
         >
           California Real Estate
         </motion.p>

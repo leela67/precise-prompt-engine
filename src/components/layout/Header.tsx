@@ -47,12 +47,12 @@ const Header = () => {
     },
     visible: {
       y: 0,
-      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      backgroundColor: 'rgba(255, 255, 255, 1)',
       backdropFilter: 'blur(12px)',
     },
     hidden: {
       y: -100,
-      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      backgroundColor: 'rgba(255, 255, 255, 1)',
       backdropFilter: 'blur(12px)',
     }
   }
@@ -82,23 +82,23 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop/Tablet Navigation (810px+) */}
+          <div className="hidden min-[810px]:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium ${textColorClass} hover:opacity-70 transition-opacity duration-200`}
+                className={`text-sm font-medium ${textColorClass} hover:opacity-70 transition-all duration-300 ease-out`}
               >
                 {item.name}
               </Link>
             ))}
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button (below 810px) */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`md:hidden p-2 ${textColorClass} hover:opacity-70 transition-opacity`}
+            className={`min-[810px]:hidden p-2 ${textColorClass} hover:opacity-70 transition-all duration-300 ease-out`}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -109,26 +109,32 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation (below 810px) */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-              className="md:hidden border-t border-interactive-border bg-white"
+              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              className="min-[810px]:hidden border-t border-interactive-border bg-white"
             >
               <div className="px-4 py-6 space-y-4">
-                {navigation.map((item) => (
-                  <Link
+                {navigation.map((item, index) => (
+                  <motion.div
                     key={item.name}
-                    to={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block text-base font-medium text-text-secondary hover:text-text-primary transition-colors"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
                   >
-                    {item.name}
-                  </Link>
+                    <Link
+                      to={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block text-base font-medium text-text-secondary hover:text-text-primary transition-all duration-300 ease-out py-2"
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

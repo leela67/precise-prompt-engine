@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-neutral-900 text-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl section-padding">
         {/* Newsletter Section */}
-        <div className="py-16 border-b border-neutral-700">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="py-8 lg:py-16 border-b border-neutral-700">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-serif font-semibold mb-4">
+              <h3 className="heading-section text-white content-spacing">
                 Stay Updated on the Market
               </h3>
-              <p className="text-neutral-300 text-lg">
+              <p className="text-body text-neutral-300">
                 Get exclusive real estate insights, market trends, and property updates straight to your inbox.
               </p>
             </div>
@@ -33,12 +33,12 @@ const Footer = () => {
         </div>
 
         {/* Main Footer Content */}
-        <div className="py-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-8 lg:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* Contact Information */}
             <div>
-              <h4 className="font-semibold mb-4">Contact Information</h4>
-              <div className="space-y-2 text-neutral-300">
+              <h4 className="text-body-lg font-semibold content-spacing text-white">Contact Information</h4>
+              <div className="space-y-2 text-caption text-neutral-300">
                 <p>(310) 555-7890</p>
                 <p>hello@julianrealestate.com</p>
                 <p>1234 Main Street, Suite 500<br />Los Angeles, CA</p>
@@ -47,15 +47,15 @@ const Footer = () => {
 
             {/* Pages */}
             <div>
-              <h4 className="font-semibold mb-4">Pages</h4>
+              <h4 className="text-body-lg font-semibold content-spacing text-white">Pages</h4>
               <div className="space-y-2">
-                <Link to="/" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   Home
                 </Link>
-                <Link to="/about" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/about" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   About Us
                 </Link>
-                <Link to="/contact" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/contact" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   Let's Connect
                 </Link>
               </div>
@@ -63,15 +63,15 @@ const Footer = () => {
 
             {/* CMS */}
             <div>
-              <h4 className="font-semibold mb-4">CMS</h4>
+              <h4 className="text-body-lg font-semibold content-spacing text-white">CMS</h4>
               <div className="space-y-2">
-                <Link to="/featured-properties" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/featured-properties" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   Featured Properties
                 </Link>
-                <Link to="/past-transactions" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/past-transactions" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   Past Transactions
                 </Link>
-                <Link to="/blog" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/blog" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   Blog
                 </Link>
               </div>
@@ -79,12 +79,12 @@ const Footer = () => {
 
             {/* Utility */}
             <div>
-              <h4 className="font-semibold mb-4">Utility</h4>
+              <h4 className="text-body-lg font-semibold content-spacing text-white">Utility</h4>
               <div className="space-y-2">
-                <Link to="/404" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/404" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   404
                 </Link>
-                <Link to="/privacy" className="block text-neutral-300 hover:text-white transition-colors">
+                <Link to="/privacy" className="block text-caption text-neutral-300 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </div>
@@ -93,24 +93,24 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="py-6 border-t border-neutral-700">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
+        <div className="py-4 lg:py-6 border-t border-neutral-700">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
                   <span className="text-neutral-900 font-bold text-sm italic">T</span>
                 </div>
-                <span className="font-serif text-xl font-semibold">
+                <span className="font-serif text-xl font-semibold text-white">
                   <span className="font-bold italic">T</span>erranova
                 </span>
               </div>
             </div>
 
             <div className="text-center md:text-right">
-              <p className="text-neutral-400 text-sm">
+              <p className="text-caption text-neutral-400">
                 Designed by Dario Volkmann
               </p>
-              <p className="text-neutral-400 text-sm">
+              <p className="text-caption text-neutral-400">
                 © 2025 Terranova. All Rights Reserved.
               </p>
             </div>
