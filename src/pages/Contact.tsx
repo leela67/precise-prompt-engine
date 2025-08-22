@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin } from 'lucide-react'
 const Contact = () => {
   return (
     <div className="min-h-screen">
-      <Header />
+      <Header initialTransparent />
       
       <main className="pt-20">
         {/* Hero Section */}

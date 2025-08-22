@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const About = () => {
   return (
     <div className="min-h-screen">
-      <Header />
+      <Header initialTransparent />
       
       <main className="pt-20">
         {/* Hero Section */}

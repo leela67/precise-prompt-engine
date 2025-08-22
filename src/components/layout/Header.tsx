@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useScrollDirection } from '@/hooks/useScrollDirection'
 
-const Header = () => {
+interface HeaderProps {
+  initialTransparent?: boolean;
+}
+
+const Header = ({ initialTransparent = false }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | 'top'>('top')
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const { scrollDirection } = useScrollDirection()
+  const location = useLocation()
+  
+  // Determine if we should show transparent header based on route and scroll
+  const isHomePage = location.pathname === '/'
+  const shouldBeTransparent = (isHomePage || initialTransparent) && scrollDirection === 'top'
 
   const navigation = [
     { name: 'Featured Properties', href: '/featured-properties' },
@@ -14,35 +23,6 @@ const Header = () => {
     { name: "Let's Connect", href: '/contact' }
   ]
 
-  // Set initial scroll position on mount
-  useEffect(() => {
-    const initialScrollY = window.scrollY
-    if (initialScrollY < 100) {
-      setScrollDirection('top')
-    } else {
-      setScrollDirection('up')
-    }
-    setLastScrollY(initialScrollY)
-  }, [])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-
-      if (currentScrollY < 100) {
-        setScrollDirection('top')
-      } else if (currentScrollY > lastScrollY) {
-        setScrollDirection('down')
-      } else {
-        setScrollDirection('up')
-      }
-
-      setLastScrollY(currentScrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
 
   const getHeaderVariant = () => {
     if (scrollDirection === 'top') return 'hero'
@@ -68,8 +48,8 @@ const Header = () => {
     }
   }
 
-  const textColorClass = scrollDirection === 'top' ? 'text-text-inverse' : 'text-text-primary'
-  const borderClass = scrollDirection === 'top' ? 'border-transparent' : 'border-interactive-border'
+  const textColorClass = shouldBeTransparent ? 'text-text-inverse' : 'text-text-primary'
+  const borderClass = shouldBeTransparent ? 'border-transparent' : 'border-interactive-border'
 
   return (
     <motion.header
