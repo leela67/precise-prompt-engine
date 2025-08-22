@@ -16,7 +16,7 @@ const solutions = [
     title: 'Past Transactions',
     description: 'View our successful property sales',
     image: 'https://framerusercontent.com/images/V7bxnKBJLKWLeFJJsbtEAYNbc8.jpg',
-    href: '/past-transactions'
+    href: '/featured-properties'
   },
   {
     id: 'lets-connect',

@@ -11,6 +11,7 @@ const Header = () => {
   // Determine if we should show transparent header based on scroll position
   // All pages should have transparent header when at the top
   const shouldBeTransparent = scrollDirection === 'top'
+  
 
   const navigation = [
     { name: 'Featured Properties', href: '/featured-properties' },
